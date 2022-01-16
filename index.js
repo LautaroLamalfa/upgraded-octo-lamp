@@ -5,10 +5,10 @@ const MongoStore = require ("connect-mongo");
 const prodRoute = require ("./routes/productos");
 const login = require("./routes/login")
 const logout = require("./routes/logout")
+const advancedOptions = { useNewUrlParcer: true, useUnifiedTopology: true}
 
 const app = express()
 
-const advancedOptions = { useNewUrlParcer: true, useUnifiedTopology: true}
 
 app.use(express.static(__dirname + "/public"))
 app.use(express.json());
@@ -19,7 +19,7 @@ app.use(
 
   session({
     store: MongoStore.create({
-    mongoUrl: "mongodb+srv://Lautaro:LoL211255@clusterlol1.kugiw.mongodb.net/ClusterLoL1?retryWrites=true&w=majority",
+    mongoUrl: "mongodb+srv://Lautaro:LoL211255@clusterlol1.kugiw.mongodb.net/ClusterLOL1?retryWrites=true&w=majority",
     mongoOptions: advancedOptions
   }),
   secret: "desafio10",
