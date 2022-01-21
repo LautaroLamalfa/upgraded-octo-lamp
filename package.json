@@ -1,7 +1,6 @@
 {
   "name": "desafio10",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
@@ -9,9 +8,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
     "connect-mongo": "^4.6.0",
     "express": "^4.17.2",
@@ -21,5 +17,17 @@
     "mongoose": "^6.1.6",
     "normalizr": "^3.6.1",
     "socket.io": "^4.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LautaroLamalfa/upgraded-octo-lamp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LautaroLamalfa/upgraded-octo-lamp/issues"
+  },
+  "homepage": "https://github.com/LautaroLamalfa/upgraded-octo-lamp#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
