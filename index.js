@@ -9,16 +9,16 @@ const logout = require("./routes/logout")
 const app = express()
 
 
-app.use(express.static(__dirname + "/public"))
+app.use(express.static( __dirname + "/public"))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
-const advancedOptions = { useNewUrlParcer: true, useUnifiedTopology: true}
+// const advancedOptions = { useNewUrlParcer: true, useUnifiedTopology: true}
 app.use(
   session({
     store: MongoStore.create({
     mongoUrl: "mongodb+srv://Lautaro:LoL211255@clusterlol1.kugiw.mongodb.net/ClusterLOL1?retryWrites=true&w=majority",
-    mongoOptions: advancedOptions
+    // mongoOptions: advancedOptions
   }),
   secret: "desafio10",
   resave:false,
