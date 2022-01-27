@@ -4,7 +4,7 @@ socket.on("render", (data)=>{
     console.log(data);
     renderTabla();
     renderChat();
-    mainLogin
+    mainLogin();
 })
 
 renderTabla = () =>{

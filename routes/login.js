@@ -4,7 +4,11 @@ const { Router } = express;
 const router = new Router();
 
 router.get("/", (req, res) => {
-    res.sendFile('public/login.html', { root: "."})
+     if (req.session.user){
+      res.send({user: req.session.user})
+    }else{
+      res.send(false);
+    }
 });
 
 router.post("/", (req, res) => {
