@@ -10,7 +10,7 @@ let chat = new Contenedor;
 
 //GET TODO EL CHAT
 router.get("/", (req, res) => {
-  async function getTodos(){
+   getTodos = async() =>{
     try{
       let aux = await chat.getAll();
 
@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
 //POST CON CHAT
 router.post("/", (req, res) => {
 
-  async function saveChat(){
+   saveChat = async() =>{
     try {
       let aux = await chat.getAll();
       aux[0].arrayChat.push(req.body);

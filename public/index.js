@@ -4,7 +4,7 @@ socket.on("render", (data)=>{
     console.log(data);
     renderTabla();
     renderChat();
-
+    mainLogin
 })
 
 renderTabla = () =>{
@@ -42,14 +42,9 @@ renderChat = () =>{
 
     fetch(url)
     .then((resp) => resp.json())
-    .then((data) => {
+    .then(() => {
         
-         let html = data.map(x => {
-             return `<p><strong>Compresion</strong>: ${x.compresion}</p>`;
-         }).join(" ");
-
-         document.getElementById('porcentaje').innerHTML= html
-
+        document.getElementById('porcentaje').innerHTML= html
 
         tabla.innerHTML="";
         for (const chat of denormalizeChat) {
@@ -73,8 +68,7 @@ renderChat = () =>{
     return false;
 }
 
-enviarChat = () =>{
-    /* Armando request para la funcion fetch */
+function enviarChat(){
     const url = '/api/chat';
     let data = {
         author:{ 
@@ -87,6 +81,7 @@ enviarChat = () =>{
         },
         text: document.getElementById('msg').value
     }
+
     const request = {
         method: 'POST',
         body: JSON.stringify(data),
@@ -96,7 +91,7 @@ enviarChat = () =>{
     };
 
     fetch(url, request)
-        .then(() =>{
+        .then(function() {
             document.getElementById('msg').value = "";
             socket.emit("actualizacion");
     });
@@ -111,14 +106,13 @@ mainLogin = () =>{
         .then((resp) => resp.json())
         .then((data) =>{
             if (data) {
-                console.log(data)
                 let x = document.getElementById("usuarioLogin");
-                x.innerHTML = "Hola "+data.user
-                let y = document.getElementById("bienvenido");
+                x.innerHTML = data.user
+                let y = document.getElementById("bienvenido")
                 y.style.display = "block";
-
-            } else {
-             window.location.href = "login.html"   
+                
+            }else{
+                window.location.href = "login.html";
             }
         }) .catch((error) => {
             console.log(error);
